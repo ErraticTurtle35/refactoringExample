@@ -30,8 +30,13 @@ function statement(invoice, plays) {
             style: "currency", currency: "USD",
             minimumFractionDigits: 2
         }).format;
+
+    function playFor(aPerformance) {
+        return plays[aPerformance.playID];
+    }
+
     for (let perf of invoice.performances) {
-        const play = plays[perf.playID];
+        const play = playFor(perf);
         let thisAmount = 0;
         thisAmount = amountFor(play, perf);
 
